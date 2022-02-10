@@ -1,0 +1,35 @@
+.container{
+    width: 50%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#login-box{
+    text-align: center;
+    height: 40%;
+    border: 2px solid black;
+    border-radius: 30px;
+    width: 35rem;
+    /* flex-direction: column; */
+    /* justify-content: space-around; */
+}
+form{
+    height: 100%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+   padding: 1rem;
+}
+
+form input, form button{
+    height: 3rem;
+    border: 2px solid transparent;
+    border-radius: 20rem !important;
+}
+form button{
+    padding:1rem ;
+    width: 100%;
+}
