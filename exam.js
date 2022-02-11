@@ -217,7 +217,7 @@ function submit(){
     if(isAllAnswered()){
         submitProcess();
     }else{
-        var confirm = window.confirm("You did not answer all the questions dou want to submit");
+        var confirm = window.confirm("You did not answer all the questions do u want to submit?");
         if(confirm){
             submitProcess();
         }

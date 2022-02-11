@@ -26,7 +26,7 @@ body{
     
 }
 .right-side{
-    height: 100%;
+    height: 98.5vh;
     width: 25%;
     background-color: rgb(177, 214, 186);
 }
@@ -38,7 +38,7 @@ body{
     justify-content: center;
 }
 .time{
-    font-size:19ch;
+    font-size:7em;
     padding-left: 0.3em;
     
 }
@@ -48,19 +48,26 @@ body{
     text-align: center;
     border: 1px;
     border-color:#198754 ;
-    border-radius: 50px;
+    border-radius: 8px;
     margin-top: 1em;
     margin-left: 0.4em;
     background-color: #198754;
+    color: white;
 }
 .mrk:hover{
     background-color: #177e4e;
     cursor: pointer;
 }
 .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0;
-    width: 95%;
+    width: 100%;
     height: 5.6vh;
+}
+#submit{
+    width: 12em;
 }
 .left-side{
     display: flex;
@@ -113,10 +120,11 @@ ul{
 } */
 .question-number{
     text-align: center;
-    
     font-size: 2rem;
     height: 1.8em;
     width: 2em;
-    
+    margin: 0.5em;
 }
-
+#previous{
+    padding: 0.4rem;
+}
