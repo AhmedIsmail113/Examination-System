@@ -70,6 +70,12 @@ var lblD = document.getElementById("d-label");
 
 var allInputs = document.getElementsByTagName("input");
 
+var markButton = document.getElementById("mark");
+
+var previousButton = document.getElementById("previous");
+var questionNumber = document.getElementById("question-number");
+var nextButton = document.getElementById("next");
+
 function setQuestion(x){
     questionBody.textContent = questions[x].body;
     lblA.textContent = questions[x].a;
@@ -79,8 +85,6 @@ function setQuestion(x){
 }
 
 var currentQuestion = 0; //to select the question
-var questionNumber = document.getElementById("question-number");
-
 
 setQuestion(0);
 
@@ -107,12 +111,26 @@ function restoreSolution(x){
         }
     }
 }
-
-
-
+// Style
+function design(){
+    if(currentQuestion == 0){
+        previousButton.style.opacity = 0.5;
+    }else{
+        previousButton.style.opacity = 1;
+    }
+    if(currentQuestion == questions.length-1){
+        nextButton.style.opacity = 0.5;
+    }else{
+        nextButton.style.opacity = 1;
+    }
+    if(questions[currentQuestion].mark){
+        markButton.style.opacity = 1;
+    }else{
+        markButton.style.opacity = 0.5;
+    }
+}
+design();
 //Next button
-var nextButton = document.getElementById("next");
-var nextBox = nextButton.style.boxShadow;
 function next(){
     if(currentQuestion < questions.length-1){
         saveSsolution();
@@ -125,16 +143,14 @@ function next(){
         }
         setQuestion(currentQuestion);
         questionNumber.textContent = currentQuestion+1;
-        nextButton.style.boxShadow = "none";
     }else{
         saveSsolution();
-        nextButton.style.boxShadow = nextBox;
     }
+    design();
 }
 
 //Previous button
-var previousButton = document.getElementById("previous");
-var previousBox = previousButton.style.boxShadow;
+
 function previous(){
     if(currentQuestion > 0){
         saveSsolution();
@@ -147,23 +163,16 @@ function previous(){
         }
         setQuestion(currentQuestion);
         questionNumber.textContent = currentQuestion+1;
-        previousButton.style.boxShadow = "none";
-    }else{
-        previousButton.style.boxShadow = previousBox;
     }
-
+    design();
 }
 
 //Mark Question
 var markArea = document.getElementById("mrk-question");
-var markButton = document.getElementById("mark");
-var markBox = markButton.style.boxShadow;
-
-
 
 function mark(){
     if(!questions[currentQuestion].mark){
-        markButton.style.boxShadow = markBox;
+        markButton.style.opacity = 1;
         var markDiv = document.createElement("div");
         markArea.appendChild(markDiv);
         var m = eval(currentQuestion + "+1");
@@ -173,7 +182,7 @@ function mark(){
         markDiv.setAttribute("onclick","getMarkedQuestion(this.id);")
         questions[currentQuestion].mark = true;
     }else{
-        markButton.style.boxShadow = "none";
+        markButton.style.opacity=0.8;
         var children = markArea.children;
         var child;
         questions[currentQuestion].mark = false;
@@ -197,6 +206,7 @@ function getMarkedQuestion(b){
         resetInputs();
     }
     setQuestion(currentQuestion);
+    design();
 }
 
 //Submit

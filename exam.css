@@ -55,7 +55,7 @@ body{
     color: white;
 }
 .mrk:hover{
-    background-color: #177e4e;
+    background-color: #157548;
     cursor: pointer;
 }
 .btn{
@@ -99,6 +99,11 @@ body{
     font-family: inherit;
     font-size: 1rem;
     width: 5em;
+    background-color: #198754;
+ 
+}
+#mark:hover{
+    background-color: #157548;
 }
 ul{
     list-style-type: none;
